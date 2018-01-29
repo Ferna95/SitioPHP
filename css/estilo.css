@@ -14,6 +14,12 @@ body{
 h1{
 	font-size: 1.4em;
 	text-align: center;
+	text-transform: uppercase;
+	margin: 10px;
+}
+
+h2{
+	text-transform: uppercase;
 }
 .link a, a.link{
 	color: #DAF7A6;
@@ -27,6 +33,7 @@ h1{
 .contenedor
 {
 	background-color: #2471A3;
+	padding-top: 4%;
 }
 
 .header{
@@ -34,6 +41,25 @@ h1{
 	position: fixed;
 	z-index: 10;
 	width: 100%;
+}
+
+.calendario{
+	text-align: center;
+}
+.calendar-table{
+	border: solid black;
+	display: inline-block;
+	border-spacing: 0px;
+}
+
+.calendar-table .tr1 td{
+	background-color: #283747;
+	padding: 5px;
+}
+
+.calendar-table .tr2 td{
+	background-color: #2980B9;
+	padding: 5px;
 }
 
 .span-header{
