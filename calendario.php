@@ -23,13 +23,16 @@
 							<td><?php echo "$i" . ":00 - " . ($i+1) .":00" ;?></td>
 							<?php for($j=1;$j<=7;$j++){ ?>
 								<td>
-									<form action="inscripcion.php" method="post">
-										<?php echo getClase($i,$j); ?>
-										<br>
-										<input type="hidden" name="dia" value="<?php echo $j ?>" />
-										<input type="hidden" name="hora" value="<?php echo $i ?>" />
-										<input type="submit" class="button-inscribir" value="Inscribirse" />
-									</form>
+									<?php if(getClase($i,$j) != '0'){ ?>
+										<form action="inscripcion.php" method="post">
+											<?php echo getClase($i,$j); ?>
+											<br>
+											<input type="hidden" name="dia" value="<?php echo $j ?>" />
+											<input type="hidden" name="hora" value="<?php echo $i ?>" />
+											<input type="hidden" name="usuario" value="<?php echo $_SESSION['Usuario'] ?>" />
+											<input type="submit" class="button-inscribir" value="Inscribirse" />
+										</form>
+									<?php } ?>
 								</td>
 							<?php } ?>
 						</tr>	

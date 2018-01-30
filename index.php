@@ -15,7 +15,7 @@
         	<div class="news">
                 <div class="new">
                     <div class="content-new">
-                        <img class="img-new" src="" />
+                        <img class="img-new" src="https://westwight.org.uk/wp-content/uploads/2018/01/12208762_995467120517853_7018141057947368028_n.jpg" />
                         <h2 class="title-new">Todas las rutinas</h2>
                         <p class="p-new">Consultá con nuestros profesionales todas las rutinas
                         que tenemos para vos según tus objetivos ¡Ellos están para ayudarte!</p>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="new">
                     <div class="content-new">
-                        <img class="img-new" src="" />
+                        <img class="img-new" src="https://westwight.org.uk/wp-content/uploads/2018/01/12208762_995467120517853_7018141057947368028_n.jpg" />
                         <h2 class="title-new">Clases todos los días</h2>
                         <p class="p-new">Sumate a las clases personalizadas que dictamos 
                         todos los días, siempre con el apoyo de nuestros profesionales ¡Recordá inscribirte para asistir!</p>

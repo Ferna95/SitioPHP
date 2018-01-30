@@ -38,7 +38,6 @@ th{
 .contenedor
 {
 	background-color: #2471A3;
-	padding-top: 4%;
 }
 
 .header{
@@ -46,6 +45,10 @@ th{
 	position: fixed;
 	z-index: 10;
 	width: 100%;
+}
+
+.back-header{
+	padding: 1%;
 }
 
 .calendario{
@@ -59,6 +62,7 @@ th{
 
 .calendar-table td, .calendar-table th{
 	border: solid black 1px;
+	padding: 5px;
 }
 
 .calendar-table .tr1 td{
@@ -110,7 +114,6 @@ th{
 	height: 500px;
 	width: 100%;
 	text-align: center;
-	border: 10px solid #283747;
 }
 
 .username
@@ -186,7 +189,6 @@ th{
 
 .news{
 	width: 100%;
-	border-top: 10px;
 	position: relative;
 	background-color: #2471A3;
 	display: table;
@@ -195,18 +197,22 @@ th{
 .new{
 	float: left;
 	position:relative;
-	margin: 2.5%;
-	width: 45%;
+	width: 50%;
 	display: table-cell;
-	background-color: #283747;
+	background-color: #2471A3;
 	text-align: center;
 }
 
 .content-new{
-	margin: 5%;
+	margin: 2%;
 	padding: 3%;
-	background-color: #DAF7A6;
-	color: #283747;
+	background-color: #283747;
+	color: #DAF7A6;
+}
+
+.img-new{
+	width: 100%;
+	height: 40%;
 }
 
 @keyframes slider-animation

@@ -42,6 +42,9 @@
         			<?php } ?>
         		</span>
         	</div>
+
+            <div class="back-header">
+            </div>
         	
         	<div id="modal-login" class="modal-login" hidden="true">
         		<form action="login.php" method="POST">
