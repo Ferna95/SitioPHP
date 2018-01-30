@@ -21,6 +21,11 @@ h1{
 h2{
 	text-transform: uppercase;
 }
+
+th{
+	font-weight: bold;
+}
+
 .link a, a.link{
 	color: #DAF7A6;
 	text-decoration: none;
@@ -50,6 +55,10 @@ h2{
 	border: solid black;
 	display: inline-block;
 	border-spacing: 0px;
+}
+
+.calendar-table td, .calendar-table th{
+	border: solid black 1px;
 }
 
 .calendar-table .tr1 td{
@@ -154,6 +163,17 @@ h2{
 }
 
 .button:hover{
+	color: #1ABC9C;
+}
+
+.button-inscribir{
+	background-color: transparent;
+	cursor: pointer;
+	text-align: center;
+	color: #DAF7A6;
+}
+
+.button-inscribir:hover{
 	color: #1ABC9C;
 }
 

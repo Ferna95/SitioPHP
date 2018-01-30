@@ -25,7 +25,7 @@
         			<ul class="links-header">
         				<li class="link"><a href="">Sobre Nosotros</a></li>
         				<li class="link"><a href="">Clases</a></li>
-        				<li class="link"><a href="inscripcion.php">Inscribirse</a></li>
+        				<li class="link"><a href="calendario.php">Inscribirse</a></li>
         			</ul>
         		</span>
         		<span class="user-menu">
