@@ -18,4 +18,5 @@
 	else{
 		echo "EL CUPO ESTA AGOTADO";
 	}
+	header('Location: index.php');
 ?>

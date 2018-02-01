@@ -26,6 +26,12 @@
         				<li class="link"><a href="">Sobre Nosotros</a></li>
         				<li class="link"><a href="">Clases</a></li>
         				<li class="link"><a href="calendario.php">Inscribirse</a></li>
+                        <li class="link"><a href="">Administrador</a>
+                            <ul>
+                                <li><a href="">Usuarios</a></li>
+                                <li><a href="">Clases</a></li>
+                            </ul>
+                        </li>
         			</ul>
         		</span>
         		<span class="user-menu">
