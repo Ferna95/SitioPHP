@@ -28,8 +28,8 @@
         				<li class="link"><a href="calendario.php">Inscribirse</a></li>
                         <li class="link"><a href="">Administrador</a>
                             <ul>
-                                <li><a href="">Usuarios</a></li>
-                                <li><a href="">Clases</a></li>
+                                <li><a href="admin-usuarios.php">Usuarios</a></li>
+                                <li><a href="admin-clases.php">Clases</a></li>
                             </ul>
                         </li>
         			</ul>

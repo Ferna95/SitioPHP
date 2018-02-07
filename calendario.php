@@ -3,7 +3,7 @@
 	<div class="contenedor">
 		<div class="calendario">
 			<h1>Clases semanales</h1>
-			<table class="calendar-table">
+			<table class="calendar-table table">
 				<tr class="tr2">
 					<th></th>
 					<th>Lunes</th>

@@ -11,4 +11,16 @@
 			return '0';
 		}
 	}
+
+	function getClases(){
+		include("conexion.inc");
+		$result = mysqli_query($link,"SELECT * FROM clases");
+		if(mysqli_num_rows($result)!=0){
+			$fila = mysqli_fetch_array($result);
+			return $fila;
+		}
+		else{
+			return '0';
+		}
+	}
 ?>
