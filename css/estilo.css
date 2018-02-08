@@ -67,25 +67,37 @@ th{
 .calendario{
 	text-align: center;
 }
-.calendar-table{
+
+.admin-clases{
+	text-align: center;
+}
+
+.table{
+	text-align: center;
 	border: solid black;
 	display: inline-block;
 	border-spacing: 0px;
 }
 
-.calendar-table td, .calendar-table th{
+.table td, .table th{
 	border: solid black 1px;
 	padding: 5px;
 }
 
-.calendar-table .tr1 td{
+.table .tr1 td{
 	background-color: #283747;
 	padding: 5px;
 }
 
-.calendar-table .tr2 td{
+.table .tr2 td{
 	background-color: #2980B9;
 	padding: 5px;
+}
+
+.listado-clases{
+	width: 48%;
+	display: inline-block;
+	margin: 1%;
 }
 
 .span-header{
@@ -144,7 +156,7 @@ th{
 	animation-duration: 2s;
 }
 
-.modal-login{
+.modal{
 	background-color: #DAF7A6 !important;
 }
 
@@ -226,6 +238,16 @@ th{
 .img-new{
 	width: 100%;
 	height: 40%;
+}
+
+.admin-clases .calendario{
+	float: left;
+	width: 48%;
+	margin: 1%;
+}
+.add-clase{
+	float: left;
+	clear:both;
 }
 
 @keyframes slider-animation

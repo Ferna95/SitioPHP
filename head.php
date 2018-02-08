@@ -52,7 +52,7 @@
             <div class="back-header">
             </div>
         	
-        	<div id="modal-login" class="modal-login" hidden="true">
+        	<div id="modal-login" class="modal-login modal" hidden="true">
         		<form action="login.php" method="POST">
         			<h1>Inicio de sesión</h1>
         			<table class="tabla tabla-login">
