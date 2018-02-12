@@ -160,6 +160,14 @@ th{
 	background-color: #DAF7A6 !important;
 }
 
+.div-form{
+	margin: 10px;
+	padding: 10px;
+	background-color: #DAF7A6;
+	text-align: left;
+	display: inline-block;
+}
+
 .tabla-login{
 	margin: 0 auto;
 }

@@ -1,14 +1,14 @@
-
 <?php include("head.php") ?>
-<?php include("clases.php") ?>
+<?php include("clase-adapter.php") ?>
 <?php include("util.php") ?>
 	<div class="contenedor">
 		<div class="admin-clases">
 			<br>
 			<br>
 			<br>
+
 			<div class="new-container modal" id="new-containter" hidden=true>
-				<form action="clase-alta.php" method="post">
+				<form action="clase-adapter.php" method="post">
 					<table class="tabla tabla-new-clase">
 						<tr>
 							<td><label class="lbl-new-clase">Nombre</label></td>
@@ -65,6 +65,7 @@
 							<td><input type="submit" class="button" value="Agregar"></td>
 						</tr>
 					</table>
+					<input type="hidden" name="mode" value="New">
 				</form>
 			</div>
 
@@ -128,18 +129,19 @@
 								<td><?php echo contarCupo($clases[$i]['id_clase']) ;?></td>
 								<td>
 									<form action="clase-editar.php" method="post">
-										<input type="hidden" name="id_clase" value="<?php echo $clases[$i]['id_clase']; ?>" />
+										<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
 										<input type="hidden" name="nombre" value="<?php echo $nombre; ?>" />
 										<input type="hidden" name="dia" value="<?php echo $dia ;?>" />
 										<input type="hidden" name="hora" value="<?php echo $hora; ?>" />
-										<input type="hidden" name="nombre_profesor" value="<?php echo $nombre_profesor; ?>" />
+										<input type="hidden" name="profesor" value="<?php echo $nombre_profesor; ?>" />
 										<input type="hidden" name="cupo" value="<?php echo $cupo; ?>" />
 										<input type="submit" class="button" value="Editar" />
 									</form>
 								</td>
 								<td>
-									<form action="clase-baja.php" method="post">
-										<input type="hidden" name="id_clase" value="<?php echo $clases[$i]['id_clase']; ?>" />
+									<form action="clase-adapter" method="post">
+										<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
+										<input type="hidden" name="mode" value="Delete">
 										<input type="submit" class="button" value="Eliminar" />
 									</form>
 								</td>

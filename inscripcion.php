@@ -18,5 +18,5 @@
 	else{
 		echo "EL CUPO ESTA AGOTADO";
 	}
-	header('Location: inscripcion.php');
+	header('Location: calendario.php');
 ?>

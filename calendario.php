@@ -1,5 +1,5 @@
 <?php include("head.php") ?>
-<?php include("clases.php") ?>
+<?php include("clase-adapter.php") ?>
 	<div class="contenedor">
 		<div class="calendario">
 			<h1>Clases semanales</h1>
