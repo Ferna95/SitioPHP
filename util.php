@@ -73,4 +73,13 @@
 			}
 		}
 	}
+
+	function getCheck($chk){
+		if($chk == "on"){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 ?>
