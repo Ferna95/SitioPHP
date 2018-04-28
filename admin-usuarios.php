@@ -79,8 +79,8 @@
 								($apellido = $usuarios[$i]['apellido'])) ;?></td>
 								<td><?php echo $telefono = $usuarios[$i]['telefono'] ;?></td>
 								<td><?php echo $mail = $usuarios[$i]['mail'] ;?></td>
-								<td><?php echo $tipo = $usuarios[$i]['tipo'] ;?></td>
-								<td><?php echo $estado = $usuarios[$i]['estado'] ;?></td>
+								<td><?php echo getRole($tipo = $usuarios[$i]['tipo']) ;?></td>
+								<td><?php echo getEstado($estado = $usuarios[$i]['estado']) ;?></td>
 								<td>
 									<form action="usuario-editar.php" method="post">
 										<input type="hidden" name="usuario" value="<?php echo $usuarios[$i]['usuario']; ?>" />

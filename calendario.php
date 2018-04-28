@@ -30,6 +30,7 @@
 												<br>
 												<input type="hidden" name="dia" value="<?php echo $j ?>" />
 												<input type="hidden" name="hora" value="<?php echo $i ?>" />
+												<input type="hidden" name="nombre" value="<?php echo getClase($i,$j) ?>" />
 												<input type="hidden" name="usuario" value="<?php echo $_SESSION['Usuario'] ?>" />
 												<input type="submit" class="button-inscribir" value="Inscribirse" />
 											</form>

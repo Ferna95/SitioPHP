@@ -1,9 +1,9 @@
     <?php include("head.php") ?>
         <div class="contenedor">
         	<div class="slider-container">
-        		<img class="img1" src="https://www.menshealth.com/sites/menshealth.com/files/articles/2017/01/how-much-joining-gym-helps-health-2.jpg.jpeg">
-        		<img class="img2" src="https://westwight.org.uk/wp-content/uploads/2018/01/12208762_995467120517853_7018141057947368028_n.jpg">
-        		<img class="img3" src="http://www.bayresgym.com.ar/img/html5_items_servicios/zumba.jpg">
+        		<img class="img1" src="images/slider1.jpg">
+        		<img class="img2" src="images/slider2.jpg">
+        		<img class="img3" src="images/slider3.jpg">
 
                 <nav class="nav-radio">
                     <input type="radio" id="cb" class="c1" name="cb" checked="true"/>

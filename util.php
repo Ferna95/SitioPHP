@@ -82,4 +82,43 @@
 			return 0;
 		}
 	}
+
+	function getRole($tipo){
+		switch ($tipo) {
+			case 0:
+			{
+				return 'Administrador';
+				break;
+			}
+			case 1:
+			{
+				return 'Socio';
+				break;
+			}
+			default:
+			{
+				return 'Visitante';
+				break;
+			}
+		}
+	}
+	function getEstado($estado){
+		switch ($estado) {
+			case 0:
+			{
+				return 'NO';
+				break;
+			}
+			case 1:
+			{
+				return 'SI';
+				break;
+			}
+			default:
+			{
+				return 'NULL';
+				break;
+			}
+		}
+	}
 ?>

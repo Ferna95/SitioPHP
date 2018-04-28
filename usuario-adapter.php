@@ -17,6 +17,7 @@
 
 	function insertUsuario($usuario,$clave,$nombre,$apellido,$mail,$telefono,$tipo,$estado){
 		include("conexion.inc");
+
 		$result = mysqli_query($link,"INSERT INTO usuarios (usuario,clave,nombre,apellido,mail,telefono,tipo,estado) VALUES 
 			('$usuario','$clave','$nombre','$apellido','$mail','$telefono','$tipo','$estado')") or die("No se ha podido ingresar el usuario");
 
@@ -34,6 +35,7 @@
 	function deleteUsuario($usuario){
 		include("conexion.inc");
 		$result = mysqli_query($link,"DELETE FROM usuarios WHERE usuario='$usuario'") or die ("No se ha podido eliminar el usuario");
+		$result = mysqli_query($link,"DELETE FROM clases_usuarios WHERE usuario='$usuario'") or die ("No se ha podido eliminar el usuario");
 
 		header('Location: admin-usuarios.php');
 	}

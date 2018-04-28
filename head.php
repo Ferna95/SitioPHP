@@ -34,6 +34,7 @@
                                     <ul>
                                         <li><a href="admin-usuarios.php">Usuarios</a></li>
                                         <li><a href="admin-clases.php">Clases</a></li>
+                                        <li><a href="admin-inscripciones.php">Inscripciones de socios</a></li>
                                     </ul>
                                 </li>
                             <?php } else if($_SESSION['TipoUsuario'] == 1){?>

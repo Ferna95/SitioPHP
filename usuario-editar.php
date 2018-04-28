@@ -33,8 +33,8 @@
 							<td><label class="lbl-update-usuario">Tipo</label></td>
 							<td>
 								<select name="tipo" class="input-text">
-									<option value="0">Administrador</option>
-									<option value="1">Socio</option>
+									<option value="0" <?php if ($_POST['tipo'] == 0) echo 'selected=selected' ?> >Administrador</option>
+									<option value="1" <?php if ($_POST['tipo'] == 1) echo 'selected=selected' ?> >Socio</option>
 								</select>
 							</td>
 						</tr>
@@ -43,8 +43,16 @@
 							<td><input type="text" name="apellido" class="input-text"
 								value="<?php echo $_POST['apellido'] ;?>"></td>
 							<td><label class="lbl-update-usuario">Habilitado</label></td>
-							<td><input type="checkbox" name="estado" class="input-text"
-								checked="<?php echo $_POST['estado'] ;?>"></td>
+							<td>
+								<?php 
+									if ($_POST['estado'] == 1) {
+										echo "<input type='checkbox' name='estado' class='input-text' checked />";
+									}
+									else{
+										echo "<input type='checkbox' name='estado' class='input-text' />";
+									}
+								?>
+							</td>
 						</tr>
 						<tr>
 							<td></td>

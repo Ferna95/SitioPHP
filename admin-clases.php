@@ -117,38 +117,40 @@
 						<th>Eliminar</th>
 					</tr>
 					<?php $clases = getClases() ?>
-					<?php for($i=0;$i<count($clases);$i++){ ?>
-						<?php if($i%2==0){ ?>
-							<tr class="tr2">
-						<?php }else{ ?>
-							<tr class="tr1">
+					<?php if ($clases) { ?>
+						<?php for($i=0;$i<count($clases);$i++){ ?>
+							<?php if($i%2==0){ ?>
+								<tr class="tr2">
+							<?php }else{ ?>
+								<tr class="tr1">
+							<?php } ?>
+									<td><?php echo $nombre = $clases[$i]['nombre'] ;?></td>
+									<td><?php echo getWeekDay($dia = $clases[$i]['dia']) ;?></td>
+									<td><?php echo ($hora = $clases[$i]['hora']) . ":00" ;?></td>
+									<td><?php echo $nombre_profesor = $clases[$i]['nombre_profesor'] ;?></td>
+									<td><?php echo $cupo = $clases[$i]['cupo'] ;?></td>
+									<td><?php echo contarCupo($clases[$i]['id_clase']) ;?></td>
+									<td>
+										<form action="clase-editar.php" method="post">
+											<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
+											<input type="hidden" name="nombre" value="<?php echo $nombre; ?>" />
+											<input type="hidden" name="dia" value="<?php echo $dia ;?>" />
+											<input type="hidden" name="hora" value="<?php echo $hora; ?>" />
+											<input type="hidden" name="profesor" value="<?php echo $nombre_profesor; ?>" />
+											<input type="hidden" name="cupo" value="<?php echo $cupo; ?>" />
+											<input type="hidden" name="descripcion" value="<?php echo $clases[$i]['descripcion']; ?>" />
+											<input type="submit" class="button" value="Editar" />
+										</form>
+									</td>
+									<td>
+										<form action="clase-adapter" method="post" onsubmit="return seguro()">
+											<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
+											<input type="hidden" name="mode" value="Delete">
+											<input type="submit" class="button" value="Eliminar" />
+										</form>
+									</td>
+								</tr>	
 						<?php } ?>
-								<td><?php echo $nombre = $clases[$i]['nombre'] ;?></td>
-								<td><?php echo getWeekDay($dia = $clases[$i]['dia']) ;?></td>
-								<td><?php echo ($hora = $clases[$i]['hora']) . ":00" ;?></td>
-								<td><?php echo $nombre_profesor = $clases[$i]['nombre_profesor'] ;?></td>
-								<td><?php echo $cupo = $clases[$i]['cupo'] ;?></td>
-								<td><?php echo contarCupo($clases[$i]['id_clase']) ;?></td>
-								<td>
-									<form action="clase-editar.php" method="post">
-										<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
-										<input type="hidden" name="nombre" value="<?php echo $nombre; ?>" />
-										<input type="hidden" name="dia" value="<?php echo $dia ;?>" />
-										<input type="hidden" name="hora" value="<?php echo $hora; ?>" />
-										<input type="hidden" name="profesor" value="<?php echo $nombre_profesor; ?>" />
-										<input type="hidden" name="cupo" value="<?php echo $cupo; ?>" />
-										<input type="hidden" name="descripcion" value="<?php echo $clases[$i]['descripcion']; ?>" />
-										<input type="submit" class="button" value="Editar" />
-									</form>
-								</td>
-								<td>
-									<form action="clase-adapter" method="post" onsubmit="return seguro()">
-										<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
-										<input type="hidden" name="mode" value="Delete">
-										<input type="submit" class="button" value="Eliminar" />
-									</form>
-								</td>
-							</tr>	
 					<?php } ?>
 				</table>
 			</div>

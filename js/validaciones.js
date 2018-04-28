@@ -80,6 +80,19 @@ function validarClase(f){
 	}
 }
 
+function validarInscripcion(f){
+	if(!f['usuario'].value){
+		alert("Por favor, complete todos los campos");
+		return false;
+	}
+	else if(seguro()){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 function seguro(){
 	if(confirm("¿Desea realizar los cambios?")){
 		return true;
