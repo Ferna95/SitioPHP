@@ -3,12 +3,10 @@
 <?php include("util.php") ?>
 	<div class="contenedor">
 		<div class="admin-clases">
-			<br>
-			<br>
-			<br>
+
 			<div class="div-form">
 				<h1>Editar clase</h1>
-				<form action="clase-adapter.php" method="post">
+				<form action="clase-adapter.php" method="post" onsubmit="return validarClase(this)">
 					<input type="hidden" name="id" value="<?php echo $_POST['id'];?>" />
 					<input type="hidden" name="mode" value="Update" />
 					<table class="tabla tabla-update-clase">
@@ -64,8 +62,9 @@
 								value="<?php echo $_POST['cupo'] ;?>"></td>
 						</tr>
 						<tr>
-							<td></td>
-							<td></td>
+							<td><label class="lbl-update-clase">Descripcion</label></td>
+							<td><input type="text" name="descripcion" class="input-text"
+								value="<?php echo $_POST['descripcion'] ;?>"></td>
 							<td></td>
 							<td><input type="submit" class="button" value="Modificar"></td>
 						</tr>

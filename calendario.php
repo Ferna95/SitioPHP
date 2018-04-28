@@ -24,14 +24,18 @@
 							<?php for($j=1;$j<=7;$j++){ ?>
 								<td>
 									<?php if(getClase($i,$j) != '0'){ ?>
-										<form action="inscripcion.php" method="post">
+										<?php if(isset($_SESSION['EstadoUsuario']) && $_SESSION['EstadoUsuario'] == 1){ ?>
+											<form action="inscripcion.php" method="post" onsubmit="return seguro()">
+												<?php echo getClase($i,$j); ?>
+												<br>
+												<input type="hidden" name="dia" value="<?php echo $j ?>" />
+												<input type="hidden" name="hora" value="<?php echo $i ?>" />
+												<input type="hidden" name="usuario" value="<?php echo $_SESSION['Usuario'] ?>" />
+												<input type="submit" class="button-inscribir" value="Inscribirse" />
+											</form>
+										<?php } else { ?>
 											<?php echo getClase($i,$j); ?>
-											<br>
-											<input type="hidden" name="dia" value="<?php echo $j ?>" />
-											<input type="hidden" name="hora" value="<?php echo $i ?>" />
-											<input type="hidden" name="usuario" value="<?php echo $_SESSION['Usuario'] ?>" />
-											<input type="submit" class="button-inscribir" value="Inscribirse" />
-										</form>
+										<?php } ?>
 									<?php } ?>
 								</td>
 							<?php } ?>
@@ -41,3 +45,6 @@
 		</div>
 	</div>
 <?php include("foot.php") ?>
+<?php if(!isset($_SESSION['EstadoUsuario']) || $_SESSION['EstadoUsuario'] == 0) { ?>
+    <script type="text/javascript">alert("NO ESTA HABILITADO PARA INSCRIBIRSE A LAS CLASES")</script>
+<?php } ?>

@@ -32,17 +32,17 @@
 		return mysqli_num_rows($result);
 	}
 
-	function insertClase($nombre,$dia,$hora,$profesor,$cupo){
+	function insertClase($nombre,$dia,$hora,$profesor,$cupo,$descripcion){
 		include("conexion.inc");
-		$result = mysqli_query($link,"INSERT INTO clases (nombre,dia,hora,nombre_profesor,cupo) VALUES 
-			('$nombre','$dia','$hora','$profesor','$cupo')") or die("No se ha podido ingresar clase");
+		$result = mysqli_query($link,"INSERT INTO clases (nombre,dia,hora,nombre_profesor,cupo,descripcion) VALUES 
+			('$nombre','$dia','$hora','$profesor','$cupo','$descripcion')") or die("No se ha podido ingresar clase");
 
 		header('Location: admin-clases.php');	
 	}
 
-	function updateClase($id,$nombre,$dia,$hora,$profesor,$cupo){
+	function updateClase($id,$nombre,$dia,$hora,$profesor,$cupo,$descripcion){
 		include("conexion.inc");
-		$result = mysqli_query($link,"UPDATE clases SET nombre='$nombre', dia='$dia', hora='$hora', nombre_profesor='$profesor', cupo='$cupo' WHERE id_clase='$id'") 
+		$result = mysqli_query($link,"UPDATE clases SET nombre='$nombre', dia='$dia', hora='$hora', nombre_profesor='$profesor', cupo='$cupo', descripcion='$descripcion' WHERE id_clase='$id'") 
 			or die("No se ha podido actualizar clase");
 
 		header('Location: admin-clases.php');	
@@ -64,7 +64,8 @@
 				$hora = $_POST['hora'];
 				$profesor = $_POST['profesor'];
 				$cupo = $_POST['cupo'];
-				insertClase($nombre,$dia,$hora,$profesor,$cupo);
+				$descripcion = $_POST['descripcion'];
+				insertClase($nombre,$dia,$hora,$profesor,$cupo,$descripcion);
 				break;
 			}
 			
@@ -76,7 +77,8 @@
 				$hora = $_POST['hora'];
 				$profesor = $_POST['profesor'];
 				$cupo = $_POST['cupo'];
-				updateClase($id,$nombre,$dia,$hora,$profesor,$cupo);
+				$descripcion = $_POST['descripcion'];
+				updateClase($id,$nombre,$dia,$hora,$profesor,$cupo,$descripcion);
 				break;
 			}
 			case 'Delete':

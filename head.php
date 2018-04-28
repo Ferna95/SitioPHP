@@ -16,22 +16,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/estilo.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
     </head>
     <body>
     	<?php session_start()?>
+        <?php include("permisos.php") ?>
+        <?php validarPermisos($_SERVER['REQUEST_URI'])?>
         <header>
         	<div class="header">
+                <a href="index.php"><img class="icon" src="images/icon.png" /></a>
         		<span class="span-header">
+
         			<ul class="links-header">
-        				<li class="link"><a href="">Sobre Nosotros</a></li>
-        				<li class="link"><a href="">Clases</a></li>
-        				<li class="link"><a href="calendario.php">Inscribirse</a></li>
-                        <li class="link"><a href="">Administrador</a>
-                            <ul>
-                                <li><a href="admin-usuarios.php">Usuarios</a></li>
-                                <li><a href="admin-clases.php">Clases</a></li>
-                            </ul>
-                        </li>
+                        <?php if(isset($_SESSION['TipoUsuario'])){?>
+                            <?php if($_SESSION['TipoUsuario'] == 0){?>
+                                <li class="link"><a>Administrador</a>
+                                    <ul>
+                                        <li><a href="admin-usuarios.php">Usuarios</a></li>
+                                        <li><a href="admin-clases.php">Clases</a></li>
+                                    </ul>
+                                </li>
+                            <?php } else if($_SESSION['TipoUsuario'] == 1){?>
+                                <li class="link"><a href="calendario.php">Inscribirse</a></li>
+                            <?php } ?>
+                        <?php } ?>
+        				<li class="link"><a href="about.php">Sobre Nosotros</a></li>
+        				<li class="link"><a href="clases.php">Clases</a></li>
         			</ul>
         		</span>
         		<span class="user-menu">
@@ -44,7 +54,7 @@
         					<input type="submit" class="button button-salir field" value="Cerrar sesión">
         				</form>
         			<?php } else{ ?>
-        				<a rel="modal:open" href="#modal-login" class="link">Ingresar</a>
+        				<a rel="modal:open" href="#modal-login" class="link">Ingresar / Registrarse</a>
         			<?php } ?>
         		</span>
         	</div>
@@ -53,20 +63,20 @@
             </div>
         	
         	<div id="modal-login" class="modal-login modal" hidden="true">
-        		<form action="login.php" method="POST">
+        		<form action="login.php" method="POST" onsubmit="return valida(this)">
         			<h1>Inicio de sesión</h1>
         			<table class="tabla tabla-login">
         				<tr class="tabla-row row1">
         					<td class="tabla-cell cell1">Usuario:</td>
-        					<td class="tabla-cell cell2"><input class="input-text" type="text" name="usuario" /></td>
+        					<td class="tabla-cell cell2"><input class="input-text" type="text" id="usuario" name="usuario" /></td>
         				</tr>
         				<tr class="tabla-row row2">
         					<td class="tabla-cell cell1">Clave:</td>
-        					<td class="tabla-cell cell2"><input class="input-text" type="password" name="clave" /></td>
+        					<td class="tabla-cell cell2"><input class="input-text" type="password" id="clave" name="clave" /></td>
         				</tr>
-        				<tr class="tabla-row row3">
-        					<td class="tabla-cell cell1"><a href="">Olvidé mi clave</a></td>
-        					<td class="tabla-cell cell-colspan2"><input type="submit" value="Ingresar" class="button"/></td>
+        				<tr class="tabla-row row3 row-right">
+        					<td class="tabla-cell cell1"><a href="usuario-registro.php">Registrarse</a></td>
+        					<td class="tabla-cell cell-colspan2"><input type="submit" value="Ingresar" class="button button-login"/></td>
         				</tr>
         			</table>
         		</form>

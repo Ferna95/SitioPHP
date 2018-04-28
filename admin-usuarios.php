@@ -1,37 +1,31 @@
 <?php include("head.php") ?>
 <?php include("usuario-adapter.php") ?>
+
 	<div class="contenedor">
 		<div class="admin-usuarios">
-			<br>
-			<br>
-			<br>
+			<h1>Usuarios</h1>
 
 			<div class="new-container modal" id="new-containter" hidden=true>
-				<form action="usuario-adapter.php" method="post">
+				<h1>Nuevo Usuario</h1>
+				<form action="usuario-adapter.php" method="post" onsubmit="return validarUser(this)">
 					<table class="tabla tabla-new-usuario">
 						<tr>
 							<td><label class="lbl-new-usuario">Usuario</label></td>
 							<td><input type="text" name="usuario" class="input-text"></td>
-						</tr>
-						<tr>
-							<td><label class="lbl-new-usuario">Clave</label></td>
-							<td><input type="password" name="clave" class="input-text"></td>
-						</tr>
-						<tr>
 							<td><label class="lbl-new-usuario">Nombre</label></td>
 							<td><input type="text" name="nombre" class="input-text"></td>
 						</tr>
 						<tr>
+							<td><label class="lbl-new-usuario">Clave</label></td>
+							<td><input type="password" name="clave" class="input-text"></td>
 							<td><label class="lbl-new-usuario">Apellido</label></td>
 							<td><input type="text" name="apellido" class="input-text"></td>
 						</tr>
 						<tr>
+							<td><label class="lbl-new-usuario">Repita clave</label></td>
+							<td><input type="password" name="clave2" class="input-text"></td>
 							<td><label class="lbl-new-usuario">Teléfono</label></td>
 							<td><input type="text" name="telefono" class="input-text"></td>
-						</tr>
-						<tr>
-							<td><label class="lbl-new-usuario">E-mail</label></td>
-							<td><input type="text" name="mail" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-usuario">Tipo</label></td>
@@ -41,14 +35,17 @@
 									<option value="1">Socio</option>
 								</select>
 							</td>
-							<td><label class="lbl-new-usuario">Habilitado</label></td>
-							<td><input type="checkbox" checked="true" name="estado" class="input-text"></td>
+							<td><label class="lbl-new-usuario">E-mail</label></td>
+							<td><input type="text" name="mail" class="input-text"></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td></td>
-							<td></td>
-							<td><input type="submit" class="button" value="Agregar"></td>
+							<td><label class="lbl-new-usuario">Habilitado</label></td>
+							<td class="row-right">
+								<input type="checkbox" checked="true" name="estado" class="input-text">
+								<input type="submit" class="button" value="Agregar">
+							</td>
 						</tr>
 					</table>
 					<input type="hidden" name="mode" value="New">
@@ -56,9 +53,9 @@
 			</div>
 			
 			<div class="listado-usuarios">
-				<h3>
+				<h3 class="row-left">
 					<a rel="modal:open" href="#new-containter" class="link add-usuarios">Agregar nuevo usuario +</a>
-				</h1>
+				</h3>
 				<table class="usuarios-table table">
 					<tr class="tr2">
 						<th>Usuario</th>
@@ -98,7 +95,7 @@
 									</form>
 								</td>
 								<td>
-									<form action="usuario-adapter" method="post">
+									<form action="usuario-adapter" method="post" onsubmit="return seguro()"">
 										<input type="hidden" name="usuario" value="<?php echo $usuarios[$i]['usuario']; ?>" />
 										<input type="hidden" name="mode" value="Delete">
 										<input type="submit" class="button" value="Eliminar" />

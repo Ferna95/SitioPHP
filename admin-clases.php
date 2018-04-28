@@ -8,7 +8,7 @@
 			<br>
 
 			<div class="new-container modal" id="new-containter" hidden=true>
-				<form action="clase-adapter.php" method="post">
+				<form action="clase-adapter.php" method="post" onsubmit="return validarClase(this)">
 					<table class="tabla tabla-new-clase">
 						<tr>
 							<td><label class="lbl-new-clase">Nombre</label></td>
@@ -53,16 +53,18 @@
 						<tr>
 							<td><label class="lbl-new-clase">Profesor</label></td>
 							<td><input type="text" name="profesor" class="input-text"></td>
-						</tr>
-						<tr>
 							<td><label class="lbl-new-clase">Cupo</label></td>
 							<td><input type="text" name="cupo" class="input-text"></td>
 						</tr>
 						<tr>
+							<td><label class="lbl-new-clase">Descripción</label></td>
+							<td colspan="3"><textarea class="input-text textarea-clase" name="descripcion"></textarea></td>
+						</tr>
+						<tr>
 							<td></td>
 							<td></td>
 							<td></td>
-							<td><input type="submit" class="button" value="Agregar"></td>
+							<td class="row-right"><input type="submit" class="button" value="Agregar"></td>
 						</tr>
 					</table>
 					<input type="hidden" name="mode" value="New">
@@ -135,11 +137,12 @@
 										<input type="hidden" name="hora" value="<?php echo $hora; ?>" />
 										<input type="hidden" name="profesor" value="<?php echo $nombre_profesor; ?>" />
 										<input type="hidden" name="cupo" value="<?php echo $cupo; ?>" />
+										<input type="hidden" name="descripcion" value="<?php echo $clases[$i]['descripcion']; ?>" />
 										<input type="submit" class="button" value="Editar" />
 									</form>
 								</td>
 								<td>
-									<form action="clase-adapter" method="post">
+									<form action="clase-adapter" method="post" onsubmit="return seguro()">
 										<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
 										<input type="hidden" name="mode" value="Delete">
 										<input type="submit" class="button" value="Eliminar" />
