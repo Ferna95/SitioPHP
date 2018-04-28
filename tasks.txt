@@ -1,0 +1,6 @@
+////////////////1- Themear pagina de clases 
+2- mostrar correctamente estado y tipo de usuario cuando se modifican datos desde admin
+3- Cuando se crea nueva clase enviar mail a todos los socios
+4- agregar estado de la inscripcion
+5- Validar que un usuario no pueda inscribirse 2 veces a la misma clase
+6- Validar que no se superpongan clases
