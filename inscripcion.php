@@ -12,14 +12,14 @@
 	$result = mysqli_query($link, "SELECT * FROM clases_usuarios WHERE id_clase='$idClase'");
 	
 	if(mysqli_num_rows($result) >= $cupoMaximo){
-		print "EL CUPO ESTA AGOTADO";
+		header('Location: calendario.php?m=El cupo esta agotado');
 	}
 	else if(validarUsuarioInscripto($usuario,$idClase)){
-		print "El USUARIO YA SE ENCUENTRA REGISTRADO";
+		header('Location: calendario.php?m=El usuario ya se encuentra registrado a esa clase');
 	}
 	else{
 		$result = mysqli_query($link,"INSERT INTO clases_usuarios (id_clase,usuario) VALUES ('$idClase','$usuario')");
-		print "OK";
+		header('Location: calendario.php?m=Se ha registrado la inscripción');
 	}
 
 

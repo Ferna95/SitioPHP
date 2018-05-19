@@ -1,3 +1,4 @@
+<?php session_start()?>
 <?php include("head.php") ?>
 <?php include("usuario-adapter.php") ?>
 
@@ -11,21 +12,21 @@
 					<table class="tabla tabla-new-usuario">
 						<tr>
 							<td><label class="lbl-new-usuario">Usuario</label></td>
-							<td><input type="text" name="usuario" class="input-text"></td>
+							<td><input required max-length="50" type="text" name="usuario" class="input-text"></td>
 							<td><label class="lbl-new-usuario">Nombre</label></td>
-							<td><input type="text" name="nombre" class="input-text"></td>
+							<td><input required max-length="50" type="text" name="nombre" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-usuario">Clave</label></td>
-							<td><input type="password" name="clave" class="input-text"></td>
+							<td><input required max-length="50" type="password" name="clave" class="input-text"></td>
 							<td><label class="lbl-new-usuario">Apellido</label></td>
-							<td><input type="text" name="apellido" class="input-text"></td>
+							<td><input required max-length="50" type="text" name="apellido" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-usuario">Repita clave</label></td>
-							<td><input type="password" name="clave2" class="input-text"></td>
+							<td><input required max-length="50" type="password" name="clave2" class="input-text"></td>
 							<td><label class="lbl-new-usuario">Teléfono</label></td>
-							<td><input type="text" name="telefono" class="input-text"></td>
+							<td><input required max-length="50" type="tel" name="telefono" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-usuario">Tipo</label></td>
@@ -36,14 +37,14 @@
 								</select>
 							</td>
 							<td><label class="lbl-new-usuario">E-mail</label></td>
-							<td><input type="text" name="mail" class="input-text"></td>
+							<td><input required max-length="50" type="email" name="mail" class="input-text"></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td></td>
 							<td><label class="lbl-new-usuario">Habilitado</label></td>
 							<td class="row-right">
-								<input type="checkbox" checked="true" name="estado" class="input-text">
+								<input type="checkbox" checked name="estado" class="input-text">
 								<input type="submit" class="button" value="Agregar">
 							</td>
 						</tr>
@@ -95,7 +96,7 @@
 									</form>
 								</td>
 								<td>
-									<form action="usuario-adapter" method="post" onsubmit="return seguro()"">
+									<form action="usuario-adapter.php" method="post" onsubmit="return seguro()"">
 										<input type="hidden" name="usuario" value="<?php echo $usuarios[$i]['usuario']; ?>" />
 										<input type="hidden" name="mode" value="Delete">
 										<input type="submit" class="button" value="Eliminar" />

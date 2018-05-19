@@ -1,3 +1,5 @@
+<?php include("permisos.php") ?>
+<?php validarPermisos($_SERVER['REQUEST_URI'])?>
 <!DOCTYPE html>
 <!--
     Author: Rolando Caldas Sanchez
@@ -9,7 +11,7 @@
     This file is part of an article:
     http://rolandocaldas.com/html5/slider-css-sin-javascript-automatico 
 -->
-<html>
+<html lang="es">
     <head>
         <title>Simple example about CSS3 animations</title>
         <meta charset="UTF-8">
@@ -19,13 +21,10 @@
 
     </head>
     <body>
-    	<?php session_start()?>
-        <?php include("permisos.php") ?>
-        <?php validarPermisos($_SERVER['REQUEST_URI'])?>
         <header>
         	<div class="header">
-                <a href="index.php"><img class="icon" src="images/icon.png" /></a>
-        		<span class="span-header">
+                <a href="index.php"><img alt="Puerta de escape a la página principal" class="icon" src="images/icon.png" /></a>
+        		<nav class="span-header">
 
         			<ul class="links-header">
                         <?php if(isset($_SESSION['TipoUsuario'])){?>
@@ -44,7 +43,7 @@
         				<li class="link"><a href="about.php">Sobre Nosotros</a></li>
         				<li class="link"><a href="clases.php">Clases</a></li>
         			</ul>
-        		</span>
+        		</nav>
         		<span class="user-menu">
         			<?php if(isset($_SESSION['Usuario'])){ ?>
         				<label class="username field"><?php echo $_SESSION['Usuario'] ?></Label>
@@ -63,23 +62,25 @@
             <div class="back-header">
             </div>
         	
-        	<div id="modal-login" class="modal-login modal" hidden="true">
+        	<div id="modal-login" class="modal-login modal" hidden>
         		<form action="login.php" method="POST" onsubmit="return valida(this)">
         			<h1>Inicio de sesión</h1>
-        			<table class="tabla tabla-login">
-        				<tr class="tabla-row row1">
-        					<td class="tabla-cell cell1">Usuario:</td>
-        					<td class="tabla-cell cell2"><input class="input-text" type="text" id="usuario" name="usuario" /></td>
-        				</tr>
-        				<tr class="tabla-row row2">
-        					<td class="tabla-cell cell1">Clave:</td>
-        					<td class="tabla-cell cell2"><input class="input-text" type="password" id="clave" name="clave" /></td>
-        				</tr>
-        				<tr class="tabla-row row3 row-right">
-        					<td class="tabla-cell cell1"><a href="usuario-registro.php">Registrarse</a></td>
-        					<td class="tabla-cell cell-colspan2"><input type="submit" value="Ingresar" class="button button-login"/></td>
-        				</tr>
-        			</table>
+        			<ul class="tabla tabla-login">
+                        <li>
+                            <ul class="tabla-row row1">
+                                <li class="tabla-cell cell1">Usuario:</li>
+                                <li class="tabla-cell cell2"><input required title="usuario" class="input-text" type="text" id="usuario" name="usuario" /></li>
+                            </ul>
+                            <ul class="tabla-row row2">
+                                <li class="tabla-cell cell1">Clave:</li>
+                                <li class="tabla-cell cell2"><input required title="clave" class="input-text" type="password" id="clave" name="clave" /></li>
+                            </ul>
+                            <ul class="tabla-row row3 row-right">
+                                <li class="tabla-cell cell1"><a href="usuario-registro.php">Registrarse</a></li>
+                                <li class="tabla-cell cell-colspan2"><input title="button" type="submit" value="Ingresar" class="button button-login"/></li>
+                            </ul>
+                        </li>
+        			</ul>
         		</form>
         	</div>
         </header>

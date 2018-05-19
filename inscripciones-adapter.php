@@ -1,8 +1,21 @@
 <?php include("util.php"); ?>
-
 <?php
 
-	function getInscripciones(){
+	function getInscripciones($inicio,$cant){
+		include("conexion.inc");
+		$result = mysqli_query($link,"SELECT * FROM clases_usuarios order by clases_usuarios.usuario asc limit ".$inicio.",".$cant);
+		if(mysqli_num_rows($result)!=0){
+			for($i=0;$i<mysqli_num_rows($result);$i++){
+				$array[$i] = mysqli_fetch_array($result);
+			}
+			return $array;
+		}
+		else{
+			return '0';
+		}
+	}
+
+	function getAllInscripciones(){
 		include("conexion.inc");
 		$result = mysqli_query($link,"SELECT * FROM clases_usuarios");
 		if(mysqli_num_rows($result)!=0){
@@ -19,17 +32,23 @@
 
 	function insertInscripcion($usuario,$clase,$estado){
 		include("conexion.inc");
-		$result = mysqli_query($link, "SELECT * FROM clases_usuarios where usuario='$usuario' and id_clase='$clase'");
-		if(mysqli_num_rows($result)==0){
-			$result = mysqli_query($link,"INSERT INTO clases_usuarios (usuario,id_clase,estado) VALUES 
-				('$usuario','$clase','$estado')") or die("No se ha podido ingresar inscripción");
 
-			header('Location: admin-inscripciones.php');	
+		$result = mysqli_query($link, "SELECT * FROM usuarios where usuario='$usuario'");
+		if(mysqli_num_rows($result) == 0){
+			header('Location: admin-inscripciones.php?m=No existe ese nombre de usuario');
 		}
 		else{
-			print "YA EXISTE UNA INSCRIPCIÓN DE ESE USUARIO EN ESA CLASE";
-		}
-		
+			$result = mysqli_query($link, "SELECT * FROM clases_usuarios where usuario='$usuario' and id_clase='$clase'");
+			if(mysqli_num_rows($result)==0){
+				$result = mysqli_query($link,"INSERT INTO clases_usuarios (usuario,id_clase,estado) VALUES 
+					('$usuario','$clase','$estado')") or die("No se ha podido ingresar inscripción");
+
+				header('Location: admin-inscripciones.php');	
+			}
+			else{
+				header('Location: admin-inscripciones.php?m=El usuario ya se encuentra registrado en esa clase');
+			}
+		}		
 	}
 
 	function updateInscripcion($usuario,$clase,$estado){
@@ -61,7 +80,12 @@
 			{
 				$usuario = $_POST['usuario'];
 				$clase = $_POST['clase'];
-				$estado =  getCheck($_POST['estado']);
+				if(isset($_POST['estado'])){
+					$estado = 1;
+				}
+				else{
+					$estado = 0;
+				}
 				insertInscripcion($usuario,$clase,$estado);
 				break;
 			}

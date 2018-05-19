@@ -1,6 +1,4 @@
-
-<?php 
-
+<?php
 	function validarPermisos($path)
 	{
 		if(!isset($_SESSION['TipoUsuario'])){
@@ -9,28 +7,26 @@
 
 		switch ($_SESSION['TipoUsuario']) {
 			case 0:
-				if($path == "/SitioPHP/calendario.php"){
+				if(parse_url($path, PHP_URL_PATH) == "/calendario.php"){
 					header("Location: index.php");
 				}
 				break;
 			case 1:
-				if($path == "/SitioPHP/admin-usuarios.php" ||
-				   $path == "/SitioPHP/admin-clases.php" ||
-				   $path == "/SitioPHP/admin-inscripciones.php"){
+				if(parse_url($path, PHP_URL_PATH) == "/admin-usuarios.php" ||
+				   parse_url($path, PHP_URL_PATH) == "/admin-clases.php" ||
+				   parse_url($path, PHP_URL_PATH) == "/admin-inscripciones.php"){
 					header("Location: index.php");
 				}
 				break;
 			default:
-				if($path == "/SitioPHP/calendario.php" ||
-				   $path == "/SitioPHP/admin-usuarios.php" ||
-				   $path == "/SitioPHP/admin-clases.php" ||
-				   $path == "/SitioPHP/admin-inscripciones.php"){
+				if(parse_url($path, PHP_URL_PATH) == "/calendario.php" ||
+				   parse_url($path, PHP_URL_PATH) == "/admin-usuarios.php" ||
+				   parse_url($path, PHP_URL_PATH) == "/admin-clases.php" ||
+				   parse_url($path, PHP_URL_PATH) == "/admin-inscripciones.php"){
 					header("Location: index.php");
 				}
 				break;
 		}
 		
 	}
-
-
 ?>

@@ -1,4 +1,4 @@
-
+<?php session_start()?>
 <?php include("head.php") ?>
 <?php include("util.php") ?>
 	<div class="contenedor">
@@ -12,23 +12,23 @@
 					<table class="tabla tabla-update-usuario">
 						<tr>
 							<td><label class="lbl-update-usuario">Clave</label></td>
-							<td><input type="password" name="clave" class="input-text"
+							<td><input required type="password" name="clave" class="input-text"
 								value="<?php echo $_POST['clave'] ;?>"></td>
 							<td><label class="lbl-update-usuario">E-mail</label></td>
-							<td><input type="text" name="mail" class="input-text"
+							<td><input required type="email" name="mail" class="input-text"
 								value="<?php echo $_POST['mail'] ;?>"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-update-usuario">Repita clave</label></td>
-							<td><input type="password" name="clave2" class="input-text"
+							<td><input required type="password" name="clave2" class="input-text"
 								value="<?php echo $_POST['clave'] ;?>"></td>
 							<td><label class="lbl-update-usuario">Teléfono</label></td>
-							<td><input type="text" name="telefono" class="input-text"
+							<td><input required type="tel" name="telefono" class="input-text"
 								value="<?php echo $_POST['telefono'] ;?>"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-update-usuario">Nombre</label></td>
-							<td><input type="text" name="nombre" class="input-text"
+							<td><input required type="text" name="nombre" class="input-text"
 								value="<?php echo $_POST['nombre'] ;?>"></td>
 							<td><label class="lbl-update-usuario">Tipo</label></td>
 							<td>
@@ -40,7 +40,7 @@
 						</tr>
 						<tr>
 							<td><label class="lbl-update-usuario">Apellido</label></td>
-							<td><input type="text" name="apellido" class="input-text"
+							<td><input required type="text" name="apellido" class="input-text"
 								value="<?php echo $_POST['apellido'] ;?>"></td>
 							<td><label class="lbl-update-usuario">Habilitado</label></td>
 							<td>

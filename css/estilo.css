@@ -135,7 +135,7 @@ th{
 	text-align: center;
 }
 
-.admin-clases, .admin-usuarios{
+.admin-clases, .admin-usuarios, .admin-inscripciones{
 	text-align: center;
 }
 
@@ -173,6 +173,13 @@ th{
 	margin: 1%;
 }
 
+.listado-inscripciones{
+	width: 50%;
+	display: inline-table;
+	margin: 1%;
+}
+
+
 .span-header{
 	text-align: left;
 	display: inline-block !important;
@@ -197,6 +204,24 @@ th{
 	padding: 10px;
 	text-transform: uppercase;
 	background-color: #283747;
+}
+
+.paginador{
+	font-weight: bold;
+}
+.paginador a{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.paginador a:hover{
+	color:#283747;
+}
+.paginador a:link{
+	color:#2980B9;
+}
+.paginador a:visited{
+	color:#2980B9;
 }
 
 .nav-radio
@@ -247,11 +272,25 @@ th{
 
 .tabla-login{
 	margin: 0 auto;
+	list-style: none;
 }
+.tabla-login li{
+	list-style: none;
+}
+
+.tabla-login ul{
+	list-style: none;
+}
+
+.tabla-login .tabla-cell{
+	display: inline-block;
+}
+
 
 .tabla .tabla-row .cell1{
 	font-size: 1.2em;
 	margin: 10px;
+	min-width: 100px;
 }
 
 .input-text{
@@ -420,6 +459,7 @@ th{
 	width: 50%;
 	height: 100%;
 	display: inline-block;
+	vertical-align: middle;
 }
 
 .clases-container .div-clase .clase .info-clase{

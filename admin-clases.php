@@ -1,3 +1,4 @@
+<?php session_start()?>
 <?php include("head.php") ?>
 <?php include("clase-adapter.php") ?>
 <?php include("util.php") ?>
@@ -6,13 +7,12 @@
 			<br>
 			<br>
 			<br>
-
 			<div class="new-container modal" id="new-containter" hidden=true>
 				<form action="clase-adapter.php" method="post" onsubmit="return validarClase(this)">
 					<table class="tabla tabla-new-clase">
 						<tr>
 							<td><label class="lbl-new-clase">Nombre</label></td>
-							<td><input type="text" name="nombre" class="input-text"></td>
+							<td><input required type="text" name="nombre" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-clase">Dia</label></td>
@@ -52,13 +52,13 @@
 						</tr>
 						<tr>
 							<td><label class="lbl-new-clase">Profesor</label></td>
-							<td><input type="text" name="profesor" class="input-text"></td>
+							<td><input required type="text" name="profesor" class="input-text"></td>
 							<td><label class="lbl-new-clase">Cupo</label></td>
-							<td><input type="text" name="cupo" class="input-text"></td>
+							<td><input required type="number" min="1" max="50" name="cupo" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-clase">Descripción</label></td>
-							<td colspan="3"><textarea class="input-text textarea-clase" name="descripcion"></textarea></td>
+							<td colspan="3"><textarea required class="input-text textarea-clase" name="descripcion"></textarea></td>
 						</tr>
 						<tr>
 							<td></td>
@@ -143,7 +143,7 @@
 										</form>
 									</td>
 									<td>
-										<form action="clase-adapter" method="post" onsubmit="return seguro()">
+										<form action="clase-adapter.php" method="post" onsubmit="return seguro()">
 											<input type="hidden" name="id" value="<?php echo $clases[$i]['id_clase']; ?>" />
 											<input type="hidden" name="mode" value="Delete">
 											<input type="submit" class="button" value="Eliminar" />

@@ -1,3 +1,4 @@
+<?php session_start()?>
 <?php include("head.php") ?>
 <?php include("inscripciones-adapter.php") ?>
 <?php include("clase-adapter.php") ?>
@@ -12,7 +13,7 @@
 					<table class="tabla tabla-new-inscripcion">
 						<tr>
 							<td><label class="lbl-new-inscripcion">Usuario</label></td>
-							<td><input type="text" name="usuario" class="input-text"></td>
+							<td><input required type="text" name="usuario" class="input-text"></td>
 						</tr>
 						<tr>
 							<td><label class="lbl-new-inscripcion">Clase</label></td>
@@ -29,7 +30,7 @@
 						</tr>
 						<tr>
 							<td><label class="lbl-new-inscripcion">Estado</label></td>
-							<td><input type="checkbox" checked="true" name="estado" class="input-text"></td>
+							<td><input type="checkbox" checked name="estado" class="input-text"></td>
 						</tr>
 						<tr>
 							<td></td>
@@ -54,7 +55,20 @@
 						<th>Editar</th>
 						<th>Eliminar</th>
 					</tr>
-					<?php $inscripciones = getInscripciones() ?>
+					<?php 
+						$Cant_por_Pag = 3;
+						$pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
+						if (!$pagina) {
+							$inicio = 0;
+							$pagina=1;
+						}
+						else {
+							$inicio = ($pagina - 1) * $Cant_por_Pag;
+						}
+					?>
+					<?php $todasLasInscripciones = getAllInscripciones() ?>
+					<?php $inscripciones = getInscripciones($inicio,$Cant_por_Pag) ?>
+					<?php $total_paginas = ceil(count($todasLasInscripciones)/ $Cant_por_Pag); ?>
 					<?php if ($inscripciones) { ?>
 						<?php for($i=0;$i<count($inscripciones);$i++){ ?>
 							<?php if($i%2==0){ ?>
@@ -76,7 +90,7 @@
 										</form>
 									</td>
 									<td>
-										<form action="inscripciones-adapter" method="post" onsubmit="return seguro()">
+										<form action="inscripciones-adapter.php" method="post" onsubmit="return seguro()">
 											<input type="hidden" name="id" value="<?php echo $inscripciones[$i]['id_inscripcion']; ?>" />
 											<input type="hidden" name="mode" value="Delete">
 											<input type="submit" class="button" value="Eliminar" />
@@ -86,6 +100,20 @@
 						<?php } ?>
 					<?php } ?>
 				</table>
+				<div class="paginador">
+					<?php 
+						if ($total_paginas > 1){
+							for ($i=1;$i<=$total_paginas;$i++){
+								if ($pagina == $i){
+									echo $pagina . " ";
+								}
+								else{
+									echo "<a href='admin-inscripciones.php?pagina=" . $i ."'>" . $i . "</a> ";
+								}
+							}
+						}
+					?>
+				</div>
 			</div>
 		</div>
 	</div>

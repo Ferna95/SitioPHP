@@ -42,40 +42,50 @@
 				('$nombre','$dia','$hora','$profesor','$cupo','$descripcion')") or die("No se ha podido ingresar clase");
 
 			if($result){
-				sendMails($nombre,$dia,$hora,$profesor,$cupo,$descripcion);
+				include("util.php");
+				sendMails($nombre,getWeekDay($dia),$hora.":00",$profesor,$cupo,$descripcion);
 			}
 			header('Location: admin-clases.php');	
 		}
 		else{
-			print "YA EXISTE UNA CLASE EN ESE HORARIO";
+			header('Location: admin-clases.php?m=Ya existe clase en ese horario');
 		}
 		
 	}
 
 	function updateClase($id,$nombre,$dia,$hora,$profesor,$cupo,$descripcion){
 		include("conexion.inc");
-		$result = mysqli_query($link,"UPDATE clases SET nombre='$nombre', dia='$dia', hora='$hora', nombre_profesor='$profesor', cupo='$cupo', descripcion='$descripcion' WHERE id_clase='$id'") 
-			or die("No se ha podido actualizar clase");
 
-		header('Location: admin-clases.php');	
+		$result = mysqli_query($link, "SELECT * FROM clases where dia=$dia and hora=$hora and id_clase!=$id");
+
+		if(mysqli_num_rows($result)==0){
+			$result = mysqli_query($link,"UPDATE clases SET nombre='$nombre', dia='$dia', hora='$hora', nombre_profesor='$profesor', cupo='$cupo', descripcion='$descripcion' WHERE id_clase='$id'") 
+				or die("No se ha podido actualizar clase");
+
+			header('Location: admin-clases.php');
+		}
+		else{
+			header('Location: admin-clases.php?m=Ya existe clase en ese horario');
+		}	
 	}
 
 	function deleteClase($id){
 		include("conexion.inc");
-		$result = mysqli_query($link,"DELETE FROM clases WHERE id_clase='$id'") or die ("No se ha podido eliminar la clase");
 
 		$result = mysqli_query($link,"DELETE FROM clases_usuarios WHERE id_clase='$id'") or die ("No se ha podido eliminar la clase");
+
+		$result = mysqli_query($link,"DELETE FROM clases WHERE id_clase='$id'") or die ("No se ha podido eliminar la clase");
 
 		header('Location: admin-clases.php');
 	}
 
 	function sendMails($nombre,$dia,$hora,$profesor,$cupo,$descripcion){
 		include ("conexion.inc");
-		$result = mysqli_query($link, "SELECT mail fro m usuarios");
+		$result = mysqli_query($link, "SELECT mail from usuarios");
 		if (mysqli_num_rows($result) != 0){
 			for($i = 0; $i < mysqli_num_rows($result);$i++){
 				$fila = mysqli_fetch_array($result);
-				mail($fila['mail'], "NUEVAS CLASES", "HERMOS AGREGADO UNA NUEVA CLASE DE $nombre PARA EL DÍA $dia a las $hora horas");
+				mail($fila['mail'], "NUEVAS CLASES", "HERMOS AGREGADO UNA NUEVA CLASE DE $nombre PARA EL DÍA $dia a las $hora HORAS");
 			}
 		}
 	}

@@ -1,3 +1,4 @@
+<?php session_start()?>
 <?php include("head.php") ?>
 
 <div class="content-about">
@@ -20,12 +21,10 @@
     </script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfWWxKgGyDoIj1gr5BiK_yorRPunjvB9w&callback=initMap"></script>
 
-	<p class="text-about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p class="text-about">
+		Somos el gimnasio más barato de Rosario, con mas de 35 años de experiencia en el sector. Hemos ido creciendo año a año con esfuerzo e ilusión por lo que nos gusta hacer, entrenar disfrutando.
+		Nos esforzamos a diario en conocerte y en que consigas alcanzar todas tus metas de una forma divertida, haciendo que te sientas como en casa . Nuestro trato personal garantiza que todos los socios reciban la atención que merecen. Nuestro principal objetivo es hacer que se sientan felices. En Gimnasio Vida Fitness nos reinventamos cada día y creemos en la importancia de las personas, por eso contamos con el mejor equipo tanto técnico como humano, el cual formamos continuamente para seguir estando en la vanguardia..
+	</p>
 
 	<div class="send-mail">
 		<p>Para ponerte en contacto con nosotros llena el formulario a continuación y contestaremos a la brevedad:</p>
@@ -33,15 +32,15 @@
 			<table>
 				<tr>
 					<td><label>Tu nombre</label></td>
-					<td><input type="text" cols=30 name="nombre" class="field-mail"></td>
+					<td><input required type="text" cols=30 name="nombre" class="field-mail"></td>
 				</tr>
 				<tr>
 					<td><label>Tu E-mail</label></td>
-					<td><input type="text" cols=30 name="email" class="field-mail"></td>
+					<td><input required type="email" cols=30 name="email" class="field-mail"></td>
 				</tr>
 				<tr>
 					<td><label>Comentario</label></td>
-					<td><textarea name="comentario" cols=40 rows=2 class="field-mail field-mail-ta"></textarea></td>
+					<td><textarea required name="comentario" cols=40 rows=2 class="field-mail field-mail-ta"></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
